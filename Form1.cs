@@ -72,7 +72,7 @@ namespace GP_System
             AP_emailEntry.Text = "";
             AP_phoneEntry.Text = "";
             AP_addressEntry.Text = "";
-            AP_doctorCombobox.Text = "";
+            AP_doctorCombobox.SelectedItem = null;
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
