@@ -45,11 +45,20 @@
             AD_firstNameEntry = new TextBox();
             AD_lastNameEntry = new TextBox();
             addPatientPage = new TabPage();
+            AP_doctorCombobox = new ComboBox();
+            AP_enterButton = new Button();
+            AP_addressEntry = new TextBox();
+            AP_phoneEntry = new TextBox();
+            AP_emailEntry = new TextBox();
+            AP_nhsNumberEntry = new TextBox();
+            AP_lastNameEntry = new TextBox();
+            AP_firstNameEntry = new TextBox();
             bookAppointmentPage = new TabPage();
             LS_tabControl.SuspendLayout();
             loginPage.SuspendLayout();
             tabControl.SuspendLayout();
             addDoctorPage.SuspendLayout();
+            addPatientPage.SuspendLayout();
             SuspendLayout();
             // 
             // LS_tabControl
@@ -134,6 +143,7 @@
             tabControl.SelectedIndex = 0;
             tabControl.Size = new Size(801, 418);
             tabControl.TabIndex = 2;
+            tabControl.SelectedIndexChanged += tabControl_SelectedIndexChanged;
             // 
             // addDoctorPage
             // 
@@ -212,6 +222,14 @@
             // 
             // addPatientPage
             // 
+            addPatientPage.Controls.Add(AP_doctorCombobox);
+            addPatientPage.Controls.Add(AP_enterButton);
+            addPatientPage.Controls.Add(AP_addressEntry);
+            addPatientPage.Controls.Add(AP_phoneEntry);
+            addPatientPage.Controls.Add(AP_emailEntry);
+            addPatientPage.Controls.Add(AP_nhsNumberEntry);
+            addPatientPage.Controls.Add(AP_lastNameEntry);
+            addPatientPage.Controls.Add(AP_firstNameEntry);
             addPatientPage.Location = new Point(4, 24);
             addPatientPage.Name = "addPatientPage";
             addPatientPage.Padding = new Padding(3);
@@ -219,6 +237,73 @@
             addPatientPage.TabIndex = 1;
             addPatientPage.Text = "Add Patient";
             addPatientPage.UseVisualStyleBackColor = true;
+            // 
+            // AP_doctorCombobox
+            // 
+            AP_doctorCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AP_doctorCombobox.FormattingEnabled = true;
+            AP_doctorCombobox.Location = new Point(289, 237);
+            AP_doctorCombobox.Name = "AP_doctorCombobox";
+            AP_doctorCombobox.Size = new Size(102, 23);
+            AP_doctorCombobox.TabIndex = 8;
+            // 
+            // AP_enterButton
+            // 
+            AP_enterButton.Location = new Point(289, 266);
+            AP_enterButton.Name = "AP_enterButton";
+            AP_enterButton.Size = new Size(102, 23);
+            AP_enterButton.TabIndex = 7;
+            AP_enterButton.Text = "Add Patient";
+            AP_enterButton.UseVisualStyleBackColor = true;
+            AP_enterButton.Click += AP_enterButton_Click;
+            // 
+            // AP_addressEntry
+            // 
+            AP_addressEntry.Location = new Point(289, 208);
+            AP_addressEntry.Name = "AP_addressEntry";
+            AP_addressEntry.Size = new Size(243, 23);
+            AP_addressEntry.TabIndex = 5;
+            AP_addressEntry.Text = "22 Love Lane, Northfleet, Kent, CT1 8BA";
+            // 
+            // AP_phoneEntry
+            // 
+            AP_phoneEntry.Location = new Point(289, 179);
+            AP_phoneEntry.Name = "AP_phoneEntry";
+            AP_phoneEntry.Size = new Size(100, 23);
+            AP_phoneEntry.TabIndex = 4;
+            AP_phoneEntry.Text = "07843319767";
+            // 
+            // AP_emailEntry
+            // 
+            AP_emailEntry.Location = new Point(289, 150);
+            AP_emailEntry.Name = "AP_emailEntry";
+            AP_emailEntry.Size = new Size(100, 23);
+            AP_emailEntry.TabIndex = 3;
+            AP_emailEntry.Text = "Dave@Roberts.com";
+            // 
+            // AP_nhsNumberEntry
+            // 
+            AP_nhsNumberEntry.Location = new Point(289, 121);
+            AP_nhsNumberEntry.Name = "AP_nhsNumberEntry";
+            AP_nhsNumberEntry.Size = new Size(100, 23);
+            AP_nhsNumberEntry.TabIndex = 2;
+            AP_nhsNumberEntry.Text = "1984623845";
+            // 
+            // AP_lastNameEntry
+            // 
+            AP_lastNameEntry.Location = new Point(289, 92);
+            AP_lastNameEntry.Name = "AP_lastNameEntry";
+            AP_lastNameEntry.Size = new Size(100, 23);
+            AP_lastNameEntry.TabIndex = 1;
+            AP_lastNameEntry.Text = "Roberts";
+            // 
+            // AP_firstNameEntry
+            // 
+            AP_firstNameEntry.Location = new Point(289, 63);
+            AP_firstNameEntry.Name = "AP_firstNameEntry";
+            AP_firstNameEntry.Size = new Size(100, 23);
+            AP_firstNameEntry.TabIndex = 0;
+            AP_firstNameEntry.Text = "Dave";
             // 
             // bookAppointmentPage
             // 
@@ -245,6 +330,8 @@
             tabControl.ResumeLayout(false);
             addDoctorPage.ResumeLayout(false);
             addDoctorPage.PerformLayout();
+            addPatientPage.ResumeLayout(false);
+            addPatientPage.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -268,5 +355,13 @@
         private TextBox AD_firstNameEntry;
         private TextBox AD_lastNameEntry;
         private TextBox AD_emailEntry;
+        private TextBox AP_emailEntry;
+        private TextBox AP_nhsNumberEntry;
+        private TextBox AP_lastNameEntry;
+        private TextBox AP_firstNameEntry;
+        private Button AP_enterButton;
+        private TextBox AP_addressEntry;
+        private TextBox AP_phoneEntry;
+        private ComboBox AP_doctorCombobox;
     }
 }

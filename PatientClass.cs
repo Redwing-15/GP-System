@@ -25,7 +25,7 @@ namespace GP_System
         }
 
         // Returns all patient information as a dictionary.
-        public Dictionary<string, string> GetPatient()
+        public Dictionary<string, string> GetData()
         {
             var data = new Dictionary<string, string>
             {
