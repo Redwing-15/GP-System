@@ -29,7 +29,7 @@ namespace GP_System
         // Returns all doctor information as a dictionary.
         public Dictionary<string, string> GetData()
         {
-            var data = new Dictionary<string, string>
+            return new Dictionary<string, string>
             {
                 { "id", id },
                 { "firstName", firstName },
@@ -39,7 +39,6 @@ namespace GP_System
                 { "phone", phone },
                 { "address", address }
             };
-            return data;
         }
         public string GetName()
         {

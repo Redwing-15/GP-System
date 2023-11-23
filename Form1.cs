@@ -45,6 +45,13 @@ namespace GP_System
             string address = AD_addressEntry.Text;
 
             doctors.Add(new Doctor(firstName, lastName, position, email, phone, address));
+
+            AD_firstNameEntry.Text = "";
+            AD_lastNameEntry.Text = "";
+            AD_positionEntry.Text = "";
+            AD_emailEntry.Text = "";
+            AD_phoneEntry.Text = "";
+            AD_addressEntry.Text = "";
         }
 
         private void AP_enterButton_Click(object sender, EventArgs e)
@@ -58,6 +65,14 @@ namespace GP_System
             string doctor = AP_doctorCombobox.Text.Split(':')[0];
 
             patients.Add(new Patient(firstName, lastName, nhsNumber, email, phone, address, doctor));
+
+            AP_firstNameEntry.Text = "";
+            AP_lastNameEntry.Text = "";
+            AP_nhsNumberEntry.Text = "";
+            AP_emailEntry.Text = "";
+            AP_phoneEntry.Text = "";
+            AP_addressEntry.Text = "";
+            AP_doctorCombobox.Text = "";
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -71,7 +86,6 @@ namespace GP_System
                 {
                     AP_doctorCombobox.Items.Add($"{n + 1}: {doctors[n].GetName()}");
                 }
-
             }
         }
     }

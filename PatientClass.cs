@@ -27,7 +27,7 @@ namespace GP_System
         // Returns all patient information as a dictionary.
         public Dictionary<string, string> GetData()
         {
-            var data = new Dictionary<string, string>
+            return new Dictionary<string, string>
             {
                 { "firstName", firstName },
                 { "lastName", lastName },
@@ -37,7 +37,6 @@ namespace GP_System
                 { "address", address },
                 { "assignedDoctor", assignedDoctor }
             };
-            return data;
         }
     }
 }
