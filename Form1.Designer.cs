@@ -37,6 +37,7 @@
             LS_logoutButton = new Button();
             tabControl = new TabControl();
             addDoctorPage = new TabPage();
+            AD_emailEntry = new TextBox();
             AD_enterButton = new Button();
             AD_positionEntry = new TextBox();
             AD_phoneEntry = new TextBox();
@@ -136,6 +137,7 @@
             // 
             // addDoctorPage
             // 
+            addDoctorPage.Controls.Add(AD_emailEntry);
             addDoctorPage.Controls.Add(AD_enterButton);
             addDoctorPage.Controls.Add(AD_positionEntry);
             addDoctorPage.Controls.Add(AD_phoneEntry);
@@ -150,9 +152,17 @@
             addDoctorPage.Text = "Add Doctor";
             addDoctorPage.UseVisualStyleBackColor = true;
             // 
+            // AD_emailEntry
+            // 
+            AD_emailEntry.Location = new Point(379, 184);
+            AD_emailEntry.Name = "AD_emailEntry";
+            AD_emailEntry.Size = new Size(100, 23);
+            AD_emailEntry.TabIndex = 6;
+            AD_emailEntry.Text = "Tim@Smith.com";
+            // 
             // AD_enterButton
             // 
-            AD_enterButton.Location = new Point(379, 242);
+            AD_enterButton.Location = new Point(379, 271);
             AD_enterButton.Name = "AD_enterButton";
             AD_enterButton.Size = new Size(100, 23);
             AD_enterButton.TabIndex = 5;
@@ -166,7 +176,7 @@
             AD_positionEntry.Name = "AD_positionEntry";
             AD_positionEntry.Size = new Size(100, 23);
             AD_positionEntry.TabIndex = 4;
-            AD_positionEntry.Text = "Nurse";
+            AD_positionEntry.Text = "Doctor";
             // 
             // AD_phoneEntry
             // 
@@ -178,7 +188,7 @@
             // 
             // AD_addressEntry
             // 
-            AD_addressEntry.Location = new Point(379, 184);
+            AD_addressEntry.Location = new Point(379, 242);
             AD_addressEntry.Name = "AD_addressEntry";
             AD_addressEntry.Size = new Size(267, 23);
             AD_addressEntry.TabIndex = 2;
@@ -257,5 +267,6 @@
         private TextBox AD_addressEntry;
         private TextBox AD_firstNameEntry;
         private TextBox AD_lastNameEntry;
+        private TextBox AD_emailEntry;
     }
 }
