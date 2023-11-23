@@ -28,5 +28,10 @@ namespace GP_System
             tabControl.Visible = false;
             LS_logoutButton.Visible = false;
         }
+
+        private void AD_enterButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

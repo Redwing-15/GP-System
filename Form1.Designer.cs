@@ -36,11 +36,19 @@
             LS_passwordEntry = new TextBox();
             LS_logoutButton = new Button();
             tabControl = new TabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
+            addDoctorPage = new TabPage();
+            AD_enterButton = new Button();
+            AD_positionEntry = new TextBox();
+            AD_phoneEntry = new TextBox();
+            AD_addressEntry = new TextBox();
+            AD_firstNameEntry = new TextBox();
+            AD_lastNameEntry = new TextBox();
+            addPatientPage = new TabPage();
+            bookAppointmentPage = new TabPage();
             LS_tabControl.SuspendLayout();
             loginPage.SuspendLayout();
             tabControl.SuspendLayout();
+            addDoctorPage.SuspendLayout();
             SuspendLayout();
             // 
             // LS_tabControl
@@ -117,34 +125,99 @@
             // 
             // tabControl
             // 
-            tabControl.Controls.Add(tabPage1);
-            tabControl.Controls.Add(tabPage2);
+            tabControl.Controls.Add(addDoctorPage);
+            tabControl.Controls.Add(addPatientPage);
+            tabControl.Controls.Add(bookAppointmentPage);
             tabControl.Location = new Point(0, 1);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
             tabControl.Size = new Size(801, 418);
             tabControl.TabIndex = 2;
-            tabControl.Visible = false;
             // 
-            // tabPage1
+            // addDoctorPage
             // 
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(793, 390);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
+            addDoctorPage.Controls.Add(AD_enterButton);
+            addDoctorPage.Controls.Add(AD_positionEntry);
+            addDoctorPage.Controls.Add(AD_phoneEntry);
+            addDoctorPage.Controls.Add(AD_addressEntry);
+            addDoctorPage.Controls.Add(AD_firstNameEntry);
+            addDoctorPage.Controls.Add(AD_lastNameEntry);
+            addDoctorPage.Location = new Point(4, 24);
+            addDoctorPage.Name = "addDoctorPage";
+            addDoctorPage.Padding = new Padding(3);
+            addDoctorPage.Size = new Size(793, 390);
+            addDoctorPage.TabIndex = 0;
+            addDoctorPage.Text = "Add Doctor";
+            addDoctorPage.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // AD_enterButton
             // 
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(793, 390);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            AD_enterButton.Location = new Point(379, 242);
+            AD_enterButton.Name = "AD_enterButton";
+            AD_enterButton.Size = new Size(100, 23);
+            AD_enterButton.TabIndex = 5;
+            AD_enterButton.Text = "Add Doctor";
+            AD_enterButton.UseVisualStyleBackColor = true;
+            AD_enterButton.Click += AD_enterButton_Click;
+            // 
+            // AD_positionEntry
+            // 
+            AD_positionEntry.Location = new Point(379, 155);
+            AD_positionEntry.Name = "AD_positionEntry";
+            AD_positionEntry.Size = new Size(100, 23);
+            AD_positionEntry.TabIndex = 4;
+            AD_positionEntry.Text = "Nurse";
+            // 
+            // AD_phoneEntry
+            // 
+            AD_phoneEntry.Location = new Point(379, 213);
+            AD_phoneEntry.Name = "AD_phoneEntry";
+            AD_phoneEntry.Size = new Size(100, 23);
+            AD_phoneEntry.TabIndex = 3;
+            AD_phoneEntry.Text = "07843319766";
+            // 
+            // AD_addressEntry
+            // 
+            AD_addressEntry.Location = new Point(379, 184);
+            AD_addressEntry.Name = "AD_addressEntry";
+            AD_addressEntry.Size = new Size(267, 23);
+            AD_addressEntry.TabIndex = 2;
+            AD_addressEntry.Text = "21 longport, canterbury, kent CT11TA";
+            // 
+            // AD_firstNameEntry
+            // 
+            AD_firstNameEntry.Location = new Point(379, 97);
+            AD_firstNameEntry.Name = "AD_firstNameEntry";
+            AD_firstNameEntry.Size = new Size(100, 23);
+            AD_firstNameEntry.TabIndex = 1;
+            AD_firstNameEntry.Text = "Tim";
+            // 
+            // AD_lastNameEntry
+            // 
+            AD_lastNameEntry.Location = new Point(379, 126);
+            AD_lastNameEntry.Name = "AD_lastNameEntry";
+            AD_lastNameEntry.Size = new Size(100, 23);
+            AD_lastNameEntry.TabIndex = 0;
+            AD_lastNameEntry.Text = "Smith";
+            // 
+            // addPatientPage
+            // 
+            addPatientPage.Location = new Point(4, 24);
+            addPatientPage.Name = "addPatientPage";
+            addPatientPage.Padding = new Padding(3);
+            addPatientPage.Size = new Size(793, 390);
+            addPatientPage.TabIndex = 1;
+            addPatientPage.Text = "Add Patient";
+            addPatientPage.UseVisualStyleBackColor = true;
+            // 
+            // bookAppointmentPage
+            // 
+            bookAppointmentPage.Location = new Point(4, 24);
+            bookAppointmentPage.Name = "bookAppointmentPage";
+            bookAppointmentPage.Size = new Size(793, 390);
+            bookAppointmentPage.TabIndex = 2;
+            bookAppointmentPage.Text = "Book Appointment";
+            bookAppointmentPage.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -160,6 +233,8 @@
             loginPage.ResumeLayout(false);
             loginPage.PerformLayout();
             tabControl.ResumeLayout(false);
+            addDoctorPage.ResumeLayout(false);
+            addDoctorPage.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -173,7 +248,14 @@
         private TextBox LS_passwordEntry;
         private Button LS_logoutButton;
         private TabControl tabControl;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
+        private TabPage addDoctorPage;
+        private TabPage addPatientPage;
+        private TabPage bookAppointmentPage;
+        private Button AD_enterButton;
+        private TextBox AD_positionEntry;
+        private TextBox AD_phoneEntry;
+        private TextBox AD_addressEntry;
+        private TextBox AD_firstNameEntry;
+        private TextBox AD_lastNameEntry;
     }
 }
