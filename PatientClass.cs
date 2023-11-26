@@ -38,5 +38,9 @@ namespace GP_System
                 { "assignedDoctor", assignedDoctor }
             };
         }
+        public string GetName()
+        {
+            return $"{firstName} {lastName}";
+        }
     }
 }

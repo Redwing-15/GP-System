@@ -54,11 +54,19 @@
             AP_lastNameEntry = new TextBox();
             AP_firstNameEntry = new TextBox();
             bookAppointmentPage = new TabPage();
+            BA_entryButton = new Button();
+            BA_commentTextbox = new TextBox();
+            BA_datePicker = new DateTimePicker();
+            BA_doctorTextbox = new TextBox();
+            BA_minuteCombobox = new ComboBox();
+            BA_hourCombobox = new ComboBox();
+            BA_patientCombobox = new ComboBox();
             LS_tabControl.SuspendLayout();
             loginPage.SuspendLayout();
             tabControl.SuspendLayout();
             addDoctorPage.SuspendLayout();
             addPatientPage.SuspendLayout();
+            bookAppointmentPage.SuspendLayout();
             SuspendLayout();
             // 
             // LS_tabControl
@@ -307,12 +315,84 @@
             // 
             // bookAppointmentPage
             // 
+            bookAppointmentPage.Controls.Add(BA_entryButton);
+            bookAppointmentPage.Controls.Add(BA_commentTextbox);
+            bookAppointmentPage.Controls.Add(BA_datePicker);
+            bookAppointmentPage.Controls.Add(BA_doctorTextbox);
+            bookAppointmentPage.Controls.Add(BA_minuteCombobox);
+            bookAppointmentPage.Controls.Add(BA_hourCombobox);
+            bookAppointmentPage.Controls.Add(BA_patientCombobox);
             bookAppointmentPage.Location = new Point(4, 24);
             bookAppointmentPage.Name = "bookAppointmentPage";
             bookAppointmentPage.Size = new Size(793, 390);
             bookAppointmentPage.TabIndex = 2;
             bookAppointmentPage.Text = "Book Appointment";
             bookAppointmentPage.UseVisualStyleBackColor = true;
+            // 
+            // BA_entryButton
+            // 
+            BA_entryButton.Location = new Point(305, 325);
+            BA_entryButton.Name = "BA_entryButton";
+            BA_entryButton.Size = new Size(75, 23);
+            BA_entryButton.TabIndex = 6;
+            BA_entryButton.Text = "Book";
+            BA_entryButton.UseVisualStyleBackColor = true;
+            BA_entryButton.Click += BA_entryButton_Click;
+            // 
+            // BA_commentTextbox
+            // 
+            BA_commentTextbox.Location = new Point(266, 202);
+            BA_commentTextbox.Multiline = true;
+            BA_commentTextbox.Name = "BA_commentTextbox";
+            BA_commentTextbox.Size = new Size(181, 103);
+            BA_commentTextbox.TabIndex = 5;
+            BA_commentTextbox.Text = "pipi brokey";
+            // 
+            // BA_datePicker
+            // 
+            BA_datePicker.Location = new Point(266, 126);
+            BA_datePicker.Name = "BA_datePicker";
+            BA_datePicker.Size = new Size(142, 23);
+            BA_datePicker.TabIndex = 4;
+            // 
+            // BA_doctorTextbox
+            // 
+            BA_doctorTextbox.AcceptsReturn = true;
+            BA_doctorTextbox.Location = new Point(266, 87);
+            BA_doctorTextbox.Name = "BA_doctorTextbox";
+            BA_doctorTextbox.ReadOnly = true;
+            BA_doctorTextbox.Size = new Size(100, 23);
+            BA_doctorTextbox.TabIndex = 3;
+            // 
+            // BA_minuteCombobox
+            // 
+            BA_minuteCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            BA_minuteCombobox.FormattingEnabled = true;
+            BA_minuteCombobox.Items.AddRange(new object[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" });
+            BA_minuteCombobox.Location = new Point(358, 167);
+            BA_minuteCombobox.Name = "BA_minuteCombobox";
+            BA_minuteCombobox.Size = new Size(50, 23);
+            BA_minuteCombobox.TabIndex = 2;
+            // 
+            // BA_hourCombobox
+            // 
+            BA_hourCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            BA_hourCombobox.FormattingEnabled = true;
+            BA_hourCombobox.Items.AddRange(new object[] { "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "19", "19", "20" });
+            BA_hourCombobox.Location = new Point(266, 167);
+            BA_hourCombobox.Name = "BA_hourCombobox";
+            BA_hourCombobox.Size = new Size(59, 23);
+            BA_hourCombobox.TabIndex = 1;
+            // 
+            // BA_patientCombobox
+            // 
+            BA_patientCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            BA_patientCombobox.FormattingEnabled = true;
+            BA_patientCombobox.Location = new Point(266, 48);
+            BA_patientCombobox.Name = "BA_patientCombobox";
+            BA_patientCombobox.Size = new Size(100, 23);
+            BA_patientCombobox.TabIndex = 0;
+            BA_patientCombobox.SelectedIndexChanged += BA_patientCombobox_SelectedIndexChanged;
             // 
             // Form1
             // 
@@ -332,6 +412,8 @@
             addDoctorPage.PerformLayout();
             addPatientPage.ResumeLayout(false);
             addPatientPage.PerformLayout();
+            bookAppointmentPage.ResumeLayout(false);
+            bookAppointmentPage.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -363,5 +445,12 @@
         private TextBox AP_addressEntry;
         private TextBox AP_phoneEntry;
         private ComboBox AP_doctorCombobox;
+        private TextBox BA_commentTextbox;
+        private DateTimePicker BA_datePicker;
+        private TextBox BA_doctorTextbox;
+        private ComboBox BA_minuteCombobox;
+        private ComboBox BA_hourCombobox;
+        private ComboBox BA_patientCombobox;
+        private Button BA_entryButton;
     }
 }

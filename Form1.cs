@@ -7,6 +7,7 @@ namespace GP_System
     {
         List<Doctor> doctors = new List<Doctor>();
         List<Patient> patients = new List<Patient>();
+        List<Appointment> appointments = new List<Appointment>();
 
         public Form1()
         {
@@ -62,7 +63,7 @@ namespace GP_System
             string email = AP_emailEntry.Text;
             string phone = AP_phoneEntry.Text;
             string address = AP_addressEntry.Text;
-            string doctor = AP_doctorCombobox.Text.Split(':')[0];
+            string doctor = AP_doctorCombobox.Items.IndexOf(AP_doctorCombobox.Text).ToString();
 
             patients.Add(new Patient(firstName, lastName, nhsNumber, email, phone, address, doctor));
 
@@ -75,6 +76,34 @@ namespace GP_System
             AP_doctorCombobox.SelectedItem = null;
         }
 
+        private void BA_patientCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (BA_patientCombobox.Text == ""){return;}
+            int id = BA_patientCombobox.Items.IndexOf(BA_patientCombobox.Text);
+            int doctorID = Convert.ToInt32(patients[id].GetData()["assignedDoctor"]);
+            string doctor = doctors[doctorID].GetName();
+
+            BA_doctorTextbox.Text = doctor;
+        }
+
+        private void BA_entryButton_Click(object sender, EventArgs e)
+        {
+            string patient = BA_patientCombobox.Text;
+            string doctor = BA_doctorTextbox.Text;
+            string date = BA_datePicker.Value.ToString("dd/MM/yyyy");
+            string time = $"{BA_hourCombobox.Text}:{BA_minuteCombobox.Text}";
+            string comment = BA_commentTextbox.Text;
+
+            appointments.Add(new Appointment(patient, doctor, date, time, comment));
+            
+            BA_patientCombobox.SelectedItem = null;
+            BA_doctorTextbox.Text = "";
+            BA_datePicker.Value = BA_datePicker.MinDate;
+            BA_hourCombobox.SelectedItem = null;
+            BA_minuteCombobox.SelectedItem = null;
+            BA_commentTextbox.Text = "";
+        }
+
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Checks if the "Add Patients" tab is selected in order to
@@ -84,8 +113,20 @@ namespace GP_System
                 AP_doctorCombobox.Items.Clear();
                 for (int n = 0; n < doctors.Count; n++)
                 {
-                    AP_doctorCombobox.Items.Add($"{n + 1}: {doctors[n].GetName()}");
+                    AP_doctorCombobox.Items.Add(doctors[n].GetName());
                 }
+            }
+            // Checks if the "Book Appointment" tab is selected in order to
+            // update the dropdowns with the latest patients
+            else if (tabControl.SelectedIndex == 2)
+            {
+                BA_patientCombobox.Items.Clear();
+                for (int n = 0; n < patients.Count; n++)
+                {
+                    BA_patientCombobox.Items.Add(patients[n].GetName());
+                }
+
+                BA_datePicker.MinDate = DateTime.Now.Date;
             }
         }
     }
