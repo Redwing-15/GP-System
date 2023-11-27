@@ -37,6 +37,13 @@
             LS_logoutButton = new Button();
             tabControl = new TabControl();
             addDoctorPage = new TabPage();
+            AD_label6 = new Label();
+            AD_label5 = new Label();
+            AD_label4 = new Label();
+            AD_label3 = new Label();
+            AD_label2 = new Label();
+            AD_label1 = new Label();
+            AD_positionCombobox = new ComboBox();
             AD_emailEntry = new TextBox();
             AD_enterButton = new Button();
             AD_phoneEntry = new TextBox();
@@ -44,6 +51,13 @@
             AD_firstNameEntry = new TextBox();
             AD_lastNameEntry = new TextBox();
             addPatientPage = new TabPage();
+            AP_label7 = new Label();
+            AP_label6 = new Label();
+            AP_label5 = new Label();
+            AP_label4 = new Label();
+            AP_label3 = new Label();
+            AP_label2 = new Label();
+            AP_label1 = new Label();
             AP_doctorCombobox = new ComboBox();
             AP_enterButton = new Button();
             AP_addressEntry = new TextBox();
@@ -53,6 +67,13 @@
             AP_lastNameEntry = new TextBox();
             AP_firstNameEntry = new TextBox();
             bookAppointmentPage = new TabPage();
+            BA_label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            BA_label4 = new Label();
+            BA_label3 = new Label();
+            BA_label2 = new Label();
+            BA_label1 = new Label();
             BA_entryButton = new Button();
             BA_commentTextbox = new TextBox();
             BA_datePicker = new DateTimePicker();
@@ -60,7 +81,6 @@
             BA_minuteCombobox = new ComboBox();
             BA_hourCombobox = new ComboBox();
             BA_patientCombobox = new ComboBox();
-            AD_positionCombobox = new ComboBox();
             LS_tabControl.SuspendLayout();
             loginPage.SuspendLayout();
             tabControl.SuspendLayout();
@@ -155,6 +175,12 @@
             // 
             // addDoctorPage
             // 
+            addDoctorPage.Controls.Add(AD_label6);
+            addDoctorPage.Controls.Add(AD_label5);
+            addDoctorPage.Controls.Add(AD_label4);
+            addDoctorPage.Controls.Add(AD_label3);
+            addDoctorPage.Controls.Add(AD_label2);
+            addDoctorPage.Controls.Add(AD_label1);
             addDoctorPage.Controls.Add(AD_positionCombobox);
             addDoctorPage.Controls.Add(AD_emailEntry);
             addDoctorPage.Controls.Add(AD_enterButton);
@@ -170,17 +196,80 @@
             addDoctorPage.Text = "Add Doctor";
             addDoctorPage.UseVisualStyleBackColor = true;
             // 
+            // AD_label6
+            // 
+            AD_label6.AutoSize = true;
+            AD_label6.Location = new Point(198, 286);
+            AD_label6.Name = "AD_label6";
+            AD_label6.Size = new Size(49, 15);
+            AD_label6.TabIndex = 13;
+            AD_label6.Text = "Address";
+            // 
+            // AD_label5
+            // 
+            AD_label5.AutoSize = true;
+            AD_label5.Location = new Point(198, 245);
+            AD_label5.Name = "AD_label5";
+            AD_label5.Size = new Size(41, 15);
+            AD_label5.TabIndex = 12;
+            AD_label5.Text = "Phone";
+            // 
+            // AD_label4
+            // 
+            AD_label4.AutoSize = true;
+            AD_label4.Location = new Point(198, 205);
+            AD_label4.Name = "AD_label4";
+            AD_label4.Size = new Size(36, 15);
+            AD_label4.TabIndex = 11;
+            AD_label4.Text = "Email";
+            // 
+            // AD_label3
+            // 
+            AD_label3.AutoSize = true;
+            AD_label3.Location = new Point(198, 159);
+            AD_label3.Name = "AD_label3";
+            AD_label3.Size = new Size(62, 15);
+            AD_label3.TabIndex = 10;
+            AD_label3.Text = "Profession";
+            // 
+            // AD_label2
+            // 
+            AD_label2.AutoSize = true;
+            AD_label2.Location = new Point(198, 111);
+            AD_label2.Name = "AD_label2";
+            AD_label2.Size = new Size(58, 15);
+            AD_label2.TabIndex = 9;
+            AD_label2.Text = "Lastname";
+            // 
+            // AD_label1
+            // 
+            AD_label1.AutoSize = true;
+            AD_label1.Location = new Point(198, 58);
+            AD_label1.Name = "AD_label1";
+            AD_label1.Size = new Size(59, 15);
+            AD_label1.TabIndex = 8;
+            AD_label1.Text = "Firstname";
+            // 
+            // AD_positionCombobox
+            // 
+            AD_positionCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AD_positionCombobox.FormattingEnabled = true;
+            AD_positionCombobox.Items.AddRange(new object[] { "Doctor", "Nurse", "Other" });
+            AD_positionCombobox.Location = new Point(267, 156);
+            AD_positionCombobox.Name = "AD_positionCombobox";
+            AD_positionCombobox.Size = new Size(100, 23);
+            AD_positionCombobox.TabIndex = 7;
+            // 
             // AD_emailEntry
             // 
-            AD_emailEntry.Location = new Point(379, 184);
+            AD_emailEntry.Location = new Point(267, 199);
             AD_emailEntry.Name = "AD_emailEntry";
             AD_emailEntry.Size = new Size(100, 23);
             AD_emailEntry.TabIndex = 6;
-            AD_emailEntry.Text = "Tim@Smith.com";
             // 
             // AD_enterButton
             // 
-            AD_enterButton.Location = new Point(379, 271);
+            AD_enterButton.Location = new Point(267, 342);
             AD_enterButton.Name = "AD_enterButton";
             AD_enterButton.Size = new Size(100, 23);
             AD_enterButton.TabIndex = 5;
@@ -190,39 +279,42 @@
             // 
             // AD_phoneEntry
             // 
-            AD_phoneEntry.Location = new Point(379, 213);
+            AD_phoneEntry.Location = new Point(267, 242);
             AD_phoneEntry.MaxLength = 11;
             AD_phoneEntry.Name = "AD_phoneEntry";
             AD_phoneEntry.Size = new Size(100, 23);
             AD_phoneEntry.TabIndex = 3;
-            AD_phoneEntry.Text = "07843319766";
             // 
             // AD_addressEntry
             // 
-            AD_addressEntry.Location = new Point(379, 242);
+            AD_addressEntry.Location = new Point(267, 283);
             AD_addressEntry.Name = "AD_addressEntry";
             AD_addressEntry.Size = new Size(267, 23);
             AD_addressEntry.TabIndex = 2;
-            AD_addressEntry.Text = "21 longport, canterbury, kent CT11TA";
             // 
             // AD_firstNameEntry
             // 
-            AD_firstNameEntry.Location = new Point(379, 97);
+            AD_firstNameEntry.Location = new Point(267, 55);
             AD_firstNameEntry.Name = "AD_firstNameEntry";
             AD_firstNameEntry.Size = new Size(100, 23);
             AD_firstNameEntry.TabIndex = 1;
-            AD_firstNameEntry.Text = "Tim";
             // 
             // AD_lastNameEntry
             // 
-            AD_lastNameEntry.Location = new Point(379, 126);
+            AD_lastNameEntry.Location = new Point(267, 108);
             AD_lastNameEntry.Name = "AD_lastNameEntry";
             AD_lastNameEntry.Size = new Size(100, 23);
             AD_lastNameEntry.TabIndex = 0;
-            AD_lastNameEntry.Text = "Smith";
             // 
             // addPatientPage
             // 
+            addPatientPage.Controls.Add(AP_label7);
+            addPatientPage.Controls.Add(AP_label6);
+            addPatientPage.Controls.Add(AP_label5);
+            addPatientPage.Controls.Add(AP_label4);
+            addPatientPage.Controls.Add(AP_label3);
+            addPatientPage.Controls.Add(AP_label2);
+            addPatientPage.Controls.Add(AP_label1);
             addPatientPage.Controls.Add(AP_doctorCombobox);
             addPatientPage.Controls.Add(AP_enterButton);
             addPatientPage.Controls.Add(AP_addressEntry);
@@ -239,18 +331,81 @@
             addPatientPage.Text = "Add Patient";
             addPatientPage.UseVisualStyleBackColor = true;
             // 
+            // AP_label7
+            // 
+            AP_label7.AutoSize = true;
+            AP_label7.Location = new Point(224, 294);
+            AP_label7.Name = "AP_label7";
+            AP_label7.Size = new Size(43, 15);
+            AP_label7.TabIndex = 15;
+            AP_label7.Text = "Doctor";
+            // 
+            // AP_label6
+            // 
+            AP_label6.AutoSize = true;
+            AP_label6.Location = new Point(224, 255);
+            AP_label6.Name = "AP_label6";
+            AP_label6.Size = new Size(49, 15);
+            AP_label6.TabIndex = 14;
+            AP_label6.Text = "Address";
+            // 
+            // AP_label5
+            // 
+            AP_label5.AutoSize = true;
+            AP_label5.Location = new Point(224, 219);
+            AP_label5.Name = "AP_label5";
+            AP_label5.Size = new Size(41, 15);
+            AP_label5.TabIndex = 13;
+            AP_label5.Text = "Phone";
+            // 
+            // AP_label4
+            // 
+            AP_label4.AutoSize = true;
+            AP_label4.Location = new Point(224, 175);
+            AP_label4.Name = "AP_label4";
+            AP_label4.Size = new Size(36, 15);
+            AP_label4.TabIndex = 12;
+            AP_label4.Text = "Email";
+            // 
+            // AP_label3
+            // 
+            AP_label3.AutoSize = true;
+            AP_label3.Location = new Point(204, 140);
+            AP_label3.Name = "AP_label3";
+            AP_label3.Size = new Size(78, 15);
+            AP_label3.TabIndex = 11;
+            AP_label3.Text = "NHS Number";
+            // 
+            // AP_label2
+            // 
+            AP_label2.AutoSize = true;
+            AP_label2.Location = new Point(224, 100);
+            AP_label2.Name = "AP_label2";
+            AP_label2.Size = new Size(58, 15);
+            AP_label2.TabIndex = 10;
+            AP_label2.Text = "Lastname";
+            // 
+            // AP_label1
+            // 
+            AP_label1.AutoSize = true;
+            AP_label1.Location = new Point(208, 63);
+            AP_label1.Name = "AP_label1";
+            AP_label1.Size = new Size(59, 15);
+            AP_label1.TabIndex = 9;
+            AP_label1.Text = "Firstname";
+            // 
             // AP_doctorCombobox
             // 
             AP_doctorCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
             AP_doctorCombobox.FormattingEnabled = true;
-            AP_doctorCombobox.Location = new Point(289, 237);
+            AP_doctorCombobox.Location = new Point(289, 294);
             AP_doctorCombobox.Name = "AP_doctorCombobox";
             AP_doctorCombobox.Size = new Size(102, 23);
             AP_doctorCombobox.TabIndex = 8;
             // 
             // AP_enterButton
             // 
-            AP_enterButton.Location = new Point(289, 266);
+            AP_enterButton.Location = new Point(289, 336);
             AP_enterButton.Name = "AP_enterButton";
             AP_enterButton.Size = new Size(102, 23);
             AP_enterButton.TabIndex = 7;
@@ -260,54 +415,57 @@
             // 
             // AP_addressEntry
             // 
-            AP_addressEntry.Location = new Point(289, 208);
+            AP_addressEntry.Location = new Point(289, 255);
             AP_addressEntry.Name = "AP_addressEntry";
             AP_addressEntry.Size = new Size(243, 23);
             AP_addressEntry.TabIndex = 5;
-            AP_addressEntry.Text = "22 Love Lane, Northfleet, Kent, CT1 8BA";
             // 
             // AP_phoneEntry
             // 
-            AP_phoneEntry.Location = new Point(289, 179);
+            AP_phoneEntry.Location = new Point(289, 216);
+            AP_phoneEntry.MaxLength = 11;
             AP_phoneEntry.Name = "AP_phoneEntry";
             AP_phoneEntry.Size = new Size(100, 23);
             AP_phoneEntry.TabIndex = 4;
-            AP_phoneEntry.Text = "07843319767";
             // 
             // AP_emailEntry
             // 
-            AP_emailEntry.Location = new Point(289, 150);
+            AP_emailEntry.Location = new Point(289, 175);
             AP_emailEntry.Name = "AP_emailEntry";
             AP_emailEntry.Size = new Size(100, 23);
             AP_emailEntry.TabIndex = 3;
-            AP_emailEntry.Text = "Dave@Roberts.com";
             // 
             // AP_nhsNumberEntry
             // 
-            AP_nhsNumberEntry.Location = new Point(289, 121);
+            AP_nhsNumberEntry.Location = new Point(289, 137);
+            AP_nhsNumberEntry.MaxLength = 10;
             AP_nhsNumberEntry.Name = "AP_nhsNumberEntry";
             AP_nhsNumberEntry.Size = new Size(100, 23);
             AP_nhsNumberEntry.TabIndex = 2;
-            AP_nhsNumberEntry.Text = "1984623845";
             // 
             // AP_lastNameEntry
             // 
-            AP_lastNameEntry.Location = new Point(289, 92);
+            AP_lastNameEntry.Location = new Point(289, 97);
             AP_lastNameEntry.Name = "AP_lastNameEntry";
             AP_lastNameEntry.Size = new Size(100, 23);
             AP_lastNameEntry.TabIndex = 1;
-            AP_lastNameEntry.Text = "Roberts";
             // 
             // AP_firstNameEntry
             // 
-            AP_firstNameEntry.Location = new Point(289, 63);
+            AP_firstNameEntry.Location = new Point(289, 60);
             AP_firstNameEntry.Name = "AP_firstNameEntry";
             AP_firstNameEntry.Size = new Size(100, 23);
             AP_firstNameEntry.TabIndex = 0;
-            AP_firstNameEntry.Text = "Dave";
             // 
             // bookAppointmentPage
             // 
+            bookAppointmentPage.Controls.Add(BA_label7);
+            bookAppointmentPage.Controls.Add(label6);
+            bookAppointmentPage.Controls.Add(label5);
+            bookAppointmentPage.Controls.Add(BA_label4);
+            bookAppointmentPage.Controls.Add(BA_label3);
+            bookAppointmentPage.Controls.Add(BA_label2);
+            bookAppointmentPage.Controls.Add(BA_label1);
             bookAppointmentPage.Controls.Add(BA_entryButton);
             bookAppointmentPage.Controls.Add(BA_commentTextbox);
             bookAppointmentPage.Controls.Add(BA_datePicker);
@@ -321,6 +479,69 @@
             bookAppointmentPage.TabIndex = 2;
             bookAppointmentPage.Text = "Book Appointment";
             bookAppointmentPage.UseVisualStyleBackColor = true;
+            // 
+            // BA_label7
+            // 
+            BA_label7.AutoSize = true;
+            BA_label7.Location = new Point(199, 202);
+            BA_label7.Name = "BA_label7";
+            BA_label7.Size = new Size(61, 15);
+            BA_label7.TabIndex = 13;
+            BA_label7.Text = "Comment";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(414, 170);
+            label6.Name = "label6";
+            label6.Size = new Size(18, 15);
+            label6.TabIndex = 12;
+            label6.Text = "M";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(328, 170);
+            label5.Name = "label5";
+            label5.Size = new Size(16, 15);
+            label5.TabIndex = 11;
+            label5.Text = "H";
+            // 
+            // BA_label4
+            // 
+            BA_label4.AutoSize = true;
+            BA_label4.Location = new Point(211, 170);
+            BA_label4.Name = "BA_label4";
+            BA_label4.Size = new Size(33, 15);
+            BA_label4.TabIndex = 10;
+            BA_label4.Text = "Time";
+            // 
+            // BA_label3
+            // 
+            BA_label3.AutoSize = true;
+            BA_label3.Location = new Point(211, 132);
+            BA_label3.Name = "BA_label3";
+            BA_label3.Size = new Size(31, 15);
+            BA_label3.TabIndex = 9;
+            BA_label3.Text = "Date";
+            // 
+            // BA_label2
+            // 
+            BA_label2.AutoSize = true;
+            BA_label2.Location = new Point(211, 90);
+            BA_label2.Name = "BA_label2";
+            BA_label2.Size = new Size(43, 15);
+            BA_label2.TabIndex = 8;
+            BA_label2.Text = "Doctor";
+            // 
+            // BA_label1
+            // 
+            BA_label1.AutoSize = true;
+            BA_label1.Location = new Point(211, 51);
+            BA_label1.Name = "BA_label1";
+            BA_label1.Size = new Size(44, 15);
+            BA_label1.TabIndex = 7;
+            BA_label1.Text = "Patient";
             // 
             // BA_entryButton
             // 
@@ -339,7 +560,6 @@
             BA_commentTextbox.Name = "BA_commentTextbox";
             BA_commentTextbox.Size = new Size(181, 103);
             BA_commentTextbox.TabIndex = 5;
-            BA_commentTextbox.Text = "pipi brokey";
             // 
             // BA_datePicker
             // 
@@ -386,16 +606,6 @@
             BA_patientCombobox.Size = new Size(100, 23);
             BA_patientCombobox.TabIndex = 0;
             BA_patientCombobox.SelectedIndexChanged += BA_patientCombobox_SelectedIndexChanged;
-            // 
-            // AD_positionCombobox
-            // 
-            AD_positionCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
-            AD_positionCombobox.FormattingEnabled = true;
-            AD_positionCombobox.Items.AddRange(new object[] { "Doctor", "Nurse", "Other" });
-            AD_positionCombobox.Location = new Point(379, 155);
-            AD_positionCombobox.Name = "AD_positionCombobox";
-            AD_positionCombobox.Size = new Size(100, 23);
-            AD_positionCombobox.TabIndex = 7;
             // 
             // Form1
             // 
@@ -455,5 +665,25 @@
         private ComboBox BA_patientCombobox;
         private Button BA_entryButton;
         private ComboBox AD_positionCombobox;
+        private Label AD_label6;
+        private Label AD_label5;
+        private Label AD_label4;
+        private Label AD_label3;
+        private Label AD_label2;
+        private Label AD_label1;
+        private Label AP_label7;
+        private Label AP_label6;
+        private Label AP_label5;
+        private Label AP_label4;
+        private Label AP_label3;
+        private Label AP_label2;
+        private Label AP_label1;
+        private Label BA_label7;
+        private Label label6;
+        private Label label5;
+        private Label BA_label4;
+        private Label BA_label3;
+        private Label BA_label2;
+        private Label BA_label1;
     }
 }

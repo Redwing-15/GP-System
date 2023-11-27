@@ -1,5 +1,7 @@
 using System.Diagnostics;
+using System.Net;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace GP_System
 {
@@ -62,8 +64,15 @@ namespace GP_System
                 MessageBox.Show("Phone must only contain numbers");
                 return;
             }
+            else if (phone.Length < 11)
+            {
+                MessageBox.Show("Phone number must be 11 numbers long");
+                return;
+            }
 
             doctors.Add(new Doctor(firstName, lastName, position, email, phone, address));
+
+            MessageBox.Show($"Successfully added doctor {firstName} {lastName} to system!");
 
             AD_firstNameEntry.Text = "";
             AD_lastNameEntry.Text = "";
@@ -95,11 +104,27 @@ namespace GP_System
                 MessageBox.Show("Email must contain an \'@\' and a domain (e.g .com)");
                 return;
             }
+            else if (double.TryParse(nhsNumber, out double result2) == false)
+            {
+                MessageBox.Show("NHS number must only contain numbers");
+                return;
+            }
+            else if (nhsNumber.Length < 10)
+            {
+                MessageBox.Show("NHS number must be 10 numbers long");
+                return;
+            }
             else if (double.TryParse(phone, out double result) == false)
             {
                 MessageBox.Show("Phone must only contain numbers");
                 return;
             }
+            else if (phone.Length < 11)
+            {
+                MessageBox.Show("Phone number must be 11 numbers long");
+                return;
+            }
+
             List<string> ids = new List<string>();
             foreach (Patient patient in patients)
             {
@@ -113,6 +138,8 @@ namespace GP_System
 
             patients.Add(new Patient(firstName, lastName, nhsNumber, email, phone, address, doctorID));
 
+            MessageBox.Show($"Successfully added patient {firstName} {lastName} to system!");
+
             AP_firstNameEntry.Text = "";
             AP_lastNameEntry.Text = "";
             AP_nhsNumberEntry.Text = "";
@@ -122,32 +149,42 @@ namespace GP_System
             AP_doctorCombobox.SelectedItem = null;
         }
 
-        private void BA_patientCombobox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (BA_patientCombobox.Text == ""){return;}
-            int id = BA_patientCombobox.Items.IndexOf(BA_patientCombobox.Text);
-            int doctorID = Convert.ToInt32(patients[id].GetData()["assignedDoctor"]);
-            string doctor = doctors[doctorID].GetName();
-
-            BA_doctorTextbox.Text = doctor;
-        }
-
         private void BA_entryButton_Click(object sender, EventArgs e)
         {
             string patient = BA_patientCombobox.Text;
             string doctor = BA_doctorTextbox.Text;
             string date = BA_datePicker.Value.ToString("dd/MM/yyyy");
-            string time = $"{BA_hourCombobox.Text}:{BA_minuteCombobox.Text}";
+            string hour = BA_hourCombobox.Text;
+            string minute = BA_minuteCombobox.Text;
+            string time = $"{hour}:{minute}";
             string comment = BA_commentTextbox.Text;
 
+            if (patient == "" | hour == "" | minute == "")
+            {
+                MessageBox.Show("Please enter all fields");
+                return;
+            }
+
             appointments.Add(new Appointment(patient, doctor, date, time, comment));
-            
+
+            MessageBox.Show($"Successfully created appointment for {patient}!");
+
             BA_patientCombobox.SelectedItem = null;
             BA_doctorTextbox.Text = "";
             BA_datePicker.Value = BA_datePicker.MinDate;
             BA_hourCombobox.SelectedItem = null;
             BA_minuteCombobox.SelectedItem = null;
             BA_commentTextbox.Text = "";
+        }
+
+        private void BA_patientCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (BA_patientCombobox.Text == "") { return; }
+            int id = BA_patientCombobox.Items.IndexOf(BA_patientCombobox.Text);
+            int doctorID = Convert.ToInt32(patients[id].GetData()["assignedDoctor"]);
+            string doctor = doctors[doctorID].GetName();
+
+            BA_doctorTextbox.Text = doctor;
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
