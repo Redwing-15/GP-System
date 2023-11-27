@@ -39,7 +39,6 @@
             addDoctorPage = new TabPage();
             AD_emailEntry = new TextBox();
             AD_enterButton = new Button();
-            AD_positionEntry = new TextBox();
             AD_phoneEntry = new TextBox();
             AD_addressEntry = new TextBox();
             AD_firstNameEntry = new TextBox();
@@ -61,6 +60,7 @@
             BA_minuteCombobox = new ComboBox();
             BA_hourCombobox = new ComboBox();
             BA_patientCombobox = new ComboBox();
+            AD_positionCombobox = new ComboBox();
             LS_tabControl.SuspendLayout();
             loginPage.SuspendLayout();
             tabControl.SuspendLayout();
@@ -155,9 +155,9 @@
             // 
             // addDoctorPage
             // 
+            addDoctorPage.Controls.Add(AD_positionCombobox);
             addDoctorPage.Controls.Add(AD_emailEntry);
             addDoctorPage.Controls.Add(AD_enterButton);
-            addDoctorPage.Controls.Add(AD_positionEntry);
             addDoctorPage.Controls.Add(AD_phoneEntry);
             addDoctorPage.Controls.Add(AD_addressEntry);
             addDoctorPage.Controls.Add(AD_firstNameEntry);
@@ -188,17 +188,10 @@
             AD_enterButton.UseVisualStyleBackColor = true;
             AD_enterButton.Click += AD_enterButton_Click;
             // 
-            // AD_positionEntry
-            // 
-            AD_positionEntry.Location = new Point(379, 155);
-            AD_positionEntry.Name = "AD_positionEntry";
-            AD_positionEntry.Size = new Size(100, 23);
-            AD_positionEntry.TabIndex = 4;
-            AD_positionEntry.Text = "Doctor";
-            // 
             // AD_phoneEntry
             // 
             AD_phoneEntry.Location = new Point(379, 213);
+            AD_phoneEntry.MaxLength = 11;
             AD_phoneEntry.Name = "AD_phoneEntry";
             AD_phoneEntry.Size = new Size(100, 23);
             AD_phoneEntry.TabIndex = 3;
@@ -394,6 +387,16 @@
             BA_patientCombobox.TabIndex = 0;
             BA_patientCombobox.SelectedIndexChanged += BA_patientCombobox_SelectedIndexChanged;
             // 
+            // AD_positionCombobox
+            // 
+            AD_positionCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            AD_positionCombobox.FormattingEnabled = true;
+            AD_positionCombobox.Items.AddRange(new object[] { "Doctor", "Nurse", "Other" });
+            AD_positionCombobox.Location = new Point(379, 155);
+            AD_positionCombobox.Name = "AD_positionCombobox";
+            AD_positionCombobox.Size = new Size(100, 23);
+            AD_positionCombobox.TabIndex = 7;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -431,7 +434,6 @@
         private TabPage addPatientPage;
         private TabPage bookAppointmentPage;
         private Button AD_enterButton;
-        private TextBox AD_positionEntry;
         private TextBox AD_phoneEntry;
         private TextBox AD_addressEntry;
         private TextBox AD_firstNameEntry;
@@ -452,5 +454,6 @@
         private ComboBox BA_hourCombobox;
         private ComboBox BA_patientCombobox;
         private Button BA_entryButton;
+        private ComboBox AD_positionCombobox;
     }
 }

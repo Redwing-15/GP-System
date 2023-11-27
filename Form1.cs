@@ -23,6 +23,7 @@ namespace GP_System
                 LS_resultLabel.Visible = true;
                 return;
             }
+
             tabControl.Visible = true;
             LS_logoutButton.Visible = true;
 
@@ -40,16 +41,32 @@ namespace GP_System
         {
             string firstName = AD_firstNameEntry.Text;
             string lastName = AD_lastNameEntry.Text;
-            string position = AD_positionEntry.Text;
+            string position = AD_positionCombobox.Text;
             string email = AD_emailEntry.Text;
             string phone = AD_phoneEntry.Text;
             string address = AD_addressEntry.Text;
 
+            if (firstName == "" | lastName == "" | position == "" | email == "" | phone == ""
+                | address == "")
+            {
+                MessageBox.Show("Please enter all fields");
+                return;
+            }
+            else if (email.Contains('@') == false | email.Contains('.') == false)
+            {
+                MessageBox.Show("Email must contain an \'@\' and a domain (e.g .com)");
+                return;
+            }
+            else if (double.TryParse(phone, out double result) == false)
+            {
+                MessageBox.Show("Phone must only contain numbers");
+                return;
+            }
             doctors.Add(new Doctor(firstName, lastName, position, email, phone, address));
 
             AD_firstNameEntry.Text = "";
             AD_lastNameEntry.Text = "";
-            AD_positionEntry.Text = "";
+            AD_positionCombobox.SelectedItem = null;
             AD_emailEntry.Text = "";
             AD_phoneEntry.Text = "";
             AD_addressEntry.Text = "";
