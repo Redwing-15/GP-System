@@ -62,6 +62,7 @@ namespace GP_System
                 MessageBox.Show("Phone must only contain numbers");
                 return;
             }
+
             doctors.Add(new Doctor(firstName, lastName, position, email, phone, address));
 
             AD_firstNameEntry.Text = "";
@@ -80,9 +81,37 @@ namespace GP_System
             string email = AP_emailEntry.Text;
             string phone = AP_phoneEntry.Text;
             string address = AP_addressEntry.Text;
-            string doctor = AP_doctorCombobox.Items.IndexOf(AP_doctorCombobox.Text).ToString();
+            string doctor = AP_doctorCombobox.Text;
+            string doctorID = AP_doctorCombobox.Items.IndexOf(doctor).ToString();
 
-            patients.Add(new Patient(firstName, lastName, nhsNumber, email, phone, address, doctor));
+            if (firstName == "" | lastName == "" | nhsNumber == "" | email == "" | phone == ""
+                | address == "" | doctor == "")
+            {
+                MessageBox.Show("Please enter all fields");
+                return;
+            }
+            else if (email.Contains('@') == false | email.Contains('.') == false)
+            {
+                MessageBox.Show("Email must contain an \'@\' and a domain (e.g .com)");
+                return;
+            }
+            else if (double.TryParse(phone, out double result) == false)
+            {
+                MessageBox.Show("Phone must only contain numbers");
+                return;
+            }
+            List<string> ids = new List<string>();
+            foreach (Patient patient in patients)
+            {
+                ids.Add(patient.GetData()["nhsNumber"]);
+            }
+            if (ids.Contains(nhsNumber))
+            {
+                MessageBox.Show("NHS number already in system");
+                return;
+            }
+
+            patients.Add(new Patient(firstName, lastName, nhsNumber, email, phone, address, doctorID));
 
             AP_firstNameEntry.Text = "";
             AP_lastNameEntry.Text = "";
