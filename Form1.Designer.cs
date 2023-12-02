@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             LS_tabControl = new TabControl();
             loginPage = new TabPage();
             LS_resultLabel = new Label();
@@ -81,12 +82,23 @@
             BA_minuteCombobox = new ComboBox();
             BA_hourCombobox = new ComboBox();
             BA_patientCombobox = new ComboBox();
+            viewAppointmentPage = new TabPage();
+            VA_appointmentTable = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewButtonColumn();
+            Column7 = new DataGridViewButtonColumn();
             LS_tabControl.SuspendLayout();
             loginPage.SuspendLayout();
             tabControl.SuspendLayout();
             addDoctorPage.SuspendLayout();
             addPatientPage.SuspendLayout();
             bookAppointmentPage.SuspendLayout();
+            viewAppointmentPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)VA_appointmentTable).BeginInit();
             SuspendLayout();
             // 
             // LS_tabControl
@@ -166,10 +178,12 @@
             tabControl.Controls.Add(addDoctorPage);
             tabControl.Controls.Add(addPatientPage);
             tabControl.Controls.Add(bookAppointmentPage);
-            tabControl.Location = new Point(0, 1);
+            tabControl.Controls.Add(viewAppointmentPage);
+            tabControl.Dock = DockStyle.Top;
+            tabControl.Location = new Point(0, 0);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
-            tabControl.Size = new Size(801, 418);
+            tabControl.Size = new Size(800, 418);
             tabControl.TabIndex = 2;
             tabControl.SelectedIndexChanged += tabControl_SelectedIndexChanged;
             // 
@@ -191,7 +205,7 @@
             addDoctorPage.Location = new Point(4, 24);
             addDoctorPage.Name = "addDoctorPage";
             addDoctorPage.Padding = new Padding(3);
-            addDoctorPage.Size = new Size(793, 390);
+            addDoctorPage.Size = new Size(792, 390);
             addDoctorPage.TabIndex = 0;
             addDoctorPage.Text = "Add Doctor";
             addDoctorPage.UseVisualStyleBackColor = true;
@@ -326,7 +340,7 @@
             addPatientPage.Location = new Point(4, 24);
             addPatientPage.Name = "addPatientPage";
             addPatientPage.Padding = new Padding(3);
-            addPatientPage.Size = new Size(793, 390);
+            addPatientPage.Size = new Size(792, 390);
             addPatientPage.TabIndex = 1;
             addPatientPage.Text = "Add Patient";
             addPatientPage.UseVisualStyleBackColor = true;
@@ -475,7 +489,7 @@
             bookAppointmentPage.Controls.Add(BA_patientCombobox);
             bookAppointmentPage.Location = new Point(4, 24);
             bookAppointmentPage.Name = "bookAppointmentPage";
-            bookAppointmentPage.Size = new Size(793, 390);
+            bookAppointmentPage.Size = new Size(792, 390);
             bookAppointmentPage.TabIndex = 2;
             bookAppointmentPage.Text = "Book Appointment";
             bookAppointmentPage.UseVisualStyleBackColor = true;
@@ -607,6 +621,94 @@
             BA_patientCombobox.TabIndex = 0;
             BA_patientCombobox.SelectedIndexChanged += BA_patientCombobox_SelectedIndexChanged;
             // 
+            // viewAppointmentPage
+            // 
+            viewAppointmentPage.Controls.Add(VA_appointmentTable);
+            viewAppointmentPage.Location = new Point(4, 24);
+            viewAppointmentPage.Name = "viewAppointmentPage";
+            viewAppointmentPage.Size = new Size(792, 390);
+            viewAppointmentPage.TabIndex = 3;
+            viewAppointmentPage.Text = "View Appointments";
+            viewAppointmentPage.UseVisualStyleBackColor = true;
+            // 
+            // VA_appointmentTable
+            // 
+            VA_appointmentTable.AllowUserToAddRows = false;
+            VA_appointmentTable.AllowUserToDeleteRows = false;
+            VA_appointmentTable.AllowUserToResizeColumns = false;
+            VA_appointmentTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            VA_appointmentTable.BackgroundColor = SystemColors.Window;
+            VA_appointmentTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            VA_appointmentTable.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            VA_appointmentTable.DefaultCellStyle = dataGridViewCellStyle1;
+            VA_appointmentTable.Dock = DockStyle.Fill;
+            VA_appointmentTable.Location = new Point(0, 0);
+            VA_appointmentTable.Name = "VA_appointmentTable";
+            VA_appointmentTable.ReadOnly = true;
+            VA_appointmentTable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            VA_appointmentTable.Size = new Size(792, 390);
+            VA_appointmentTable.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Patient";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Doctor";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Date";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Width = 75;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Time";
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            Column4.Width = 50;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Comment";
+            Column5.Name = "Column5";
+            Column5.ReadOnly = true;
+            Column5.Width = 274;
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "Edit";
+            Column6.Name = "Column6";
+            Column6.ReadOnly = true;
+            Column6.Text = "Edit";
+            Column6.UseColumnTextForButtonValue = true;
+            Column6.Width = 50;
+            // 
+            // Column7
+            // 
+            Column7.HeaderText = "Cancel";
+            Column7.Name = "Column7";
+            Column7.ReadOnly = true;
+            Column7.Text = "Cancel";
+            Column7.UseColumnTextForButtonValue = true;
+            Column7.Width = 50;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -627,6 +729,8 @@
             addPatientPage.PerformLayout();
             bookAppointmentPage.ResumeLayout(false);
             bookAppointmentPage.PerformLayout();
+            viewAppointmentPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)VA_appointmentTable).EndInit();
             ResumeLayout(false);
         }
 
@@ -685,5 +789,14 @@
         private Label BA_label3;
         private Label BA_label2;
         private Label BA_label1;
+        private TabPage viewAppointmentPage;
+        private DataGridView VA_appointmentTable;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewButtonColumn Column6;
+        private DataGridViewButtonColumn Column7;
     }
 }

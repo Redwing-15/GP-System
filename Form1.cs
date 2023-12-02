@@ -1,7 +1,11 @@
 using System.Diagnostics;
 using System.Net;
+using System.Numerics;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace GP_System
 {
@@ -11,8 +15,14 @@ namespace GP_System
         List<Patient> patients = new List<Patient>();
         List<Appointment> appointments = new List<Appointment>();
 
+        
         public Form1()
         {
+            // REMOVE WHEN FINISHED
+            doctors.Add(new Doctor("Dave", "Smith", "Doctor", "Dave@Beckett.com", "07843319766", "62 bobsmith drive"));
+            patients.Add(new Patient("Bob", "Ross", "1234567890", "Bob@Ross.com", "07843319767", "21 lovejoy lane", "0"));
+            appointments.Add(new Appointment("Bob Ross", "Dave Smith", "01/01/2004", "08:40", "Has an inflamed arm"));
+            appointments.Add(new Appointment("Bob Ross", "Dave Smith", "02/12/2023", "08:50", "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog."));
             InitializeComponent();
         }
 
@@ -210,6 +220,19 @@ namespace GP_System
                 }
 
                 BA_datePicker.MinDate = DateTime.Now.Date;
+            }
+            // Checks if the "View Appointments" tab is selected in order to
+            // update the fields with the latest data
+            else if (tabControl.SelectedIndex == 3)
+            {
+                VA_appointmentTable.Rows.Clear();
+                foreach (Appointment appointment in appointments)
+                {
+                    var data = appointment.GetData();
+                    string[] values = [data["patient"], data["doctor"], data["date"],
+                        data["time"], data["comment"]];
+                    VA_appointmentTable.Rows.Add(values);
+                }
             }
         }
     }
