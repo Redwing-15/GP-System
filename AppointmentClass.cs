@@ -49,5 +49,10 @@ namespace GP_System
             time = data[3];
             comment = data[4];
         }
+
+        public void SubtractCount(int value)
+        {
+            count -= value;
+        }
     }
 }

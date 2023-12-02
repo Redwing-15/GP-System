@@ -19,10 +19,10 @@ namespace GP_System
         public Form1()
         {
             // REMOVE WHEN FINISHED
-            doctors.Add(new Doctor("Dave", "Smith", "Doctor", "Dave@Beckett.com", "07843319766", "62 bobsmith drive"));
-            patients.Add(new Patient("Bob", "Ross", "1234567890", "Bob@Ross.com", "07843319767", "21 lovejoy lane", "0"));
-            appointments.Add(new Appointment("Bob Ross", "Dave Smith", "01/01/2004", "08:40", "Has an inflamed arm"));
-            appointments.Add(new Appointment("Bob Ross", "Dave Smith", "02/12/2023", "08:50", "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog."));
+            //doctors.Add(new Doctor("Dave", "Smith", "Doctor", "Dave@Beckett.com", "07843319766", "62 bobsmith drive"));
+            //patients.Add(new Patient("Bob", "Ross", "1234567890", "Bob@Ross.com", "07843319767", "21 lovejoy lane", "0"));
+            //appointments.Add(new Appointment("Bob Ross", "Dave Smith", "01/01/2004", "08:40", "Has an inflamed arm"));
+            //appointments.Add(new Appointment("Bob Ross", "Dave Smith", "02/12/2023", "08:50", "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog."));
             InitializeComponent();
             tabControl.TabPages.Remove(editAppointmentPage);
         }
@@ -239,13 +239,8 @@ namespace GP_System
 
         private void ShowAppointmentEditPage(int index)
         {
-            Debug.WriteLine("Edit");
             Appointment appointment = appointments[index];
             Dictionary<string, string> data = appointment.GetData();
-            foreach (var value in data)
-            {
-                Debug.WriteLine(value);
-            }
 
             tabControl.TabPages.Insert(4, editAppointmentPage);
 
@@ -267,7 +262,9 @@ namespace GP_System
         }
         private void CancelAppointment(int index)
         {
+            appointments[index].SubtractCount(1);
             appointments.Remove(appointments[index]);
+            
             VA_appointmentTable.Rows.RemoveAt(index);
         }
 
@@ -311,7 +308,6 @@ namespace GP_System
             string hour = EA_hourCombobox.Text;
             string minute = EA_minuteCombobox.Text;
             string time = $"{hour}:{minute}";
-            Debug.WriteLine(time);
             string comment = EA_commentTextbox.Text;
 
             if (patient == "" | hour == "" | minute == "")

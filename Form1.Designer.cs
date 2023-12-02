@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             LS_tabControl = new TabControl();
             loginPage = new TabPage();
             LS_resultLabel = new Label();
@@ -204,6 +204,7 @@
             tabControl.SelectedIndex = 0;
             tabControl.Size = new Size(800, 418);
             tabControl.TabIndex = 2;
+            tabControl.Visible = false;
             tabControl.SelectedIndexChanged += tabControl_SelectedIndexChanged;
             // 
             // addDoctorPage
@@ -659,14 +660,14 @@
             VA_appointmentTable.BackgroundColor = SystemColors.Window;
             VA_appointmentTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             VA_appointmentTable.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            VA_appointmentTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            VA_appointmentTable.DefaultCellStyle = dataGridViewCellStyle1;
             VA_appointmentTable.Dock = DockStyle.Fill;
             VA_appointmentTable.Location = new Point(0, 0);
             VA_appointmentTable.Name = "VA_appointmentTable";
