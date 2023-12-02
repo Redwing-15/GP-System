@@ -655,6 +655,7 @@
             VA_appointmentTable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             VA_appointmentTable.Size = new Size(792, 390);
             VA_appointmentTable.TabIndex = 0;
+            VA_appointmentTable.CellContentClick += VA_appointmentTable_CellContentClick;
             // 
             // Column1
             // 

@@ -15,7 +15,7 @@ namespace GP_System
         List<Patient> patients = new List<Patient>();
         List<Appointment> appointments = new List<Appointment>();
 
-        
+
         public Form1()
         {
             // REMOVE WHEN FINISHED
@@ -233,6 +233,46 @@ namespace GP_System
                         data["time"], data["comment"]];
                     VA_appointmentTable.Rows.Add(values);
                 }
+            }
+        }
+
+        private void ShowAppointmentEditPage(int index)
+        {
+            Debug.WriteLine("Edit");
+            Appointment appointment = appointments[index];
+            foreach (var data in appointment.GetData()) 
+            {
+                Debug.WriteLine(data);
+            }
+        }
+        private void CancelAppointment(int index)
+        {
+            appointments.Remove(appointments[index]);
+            VA_appointmentTable.Rows.RemoveAt(index);
+        }
+
+        private void VA_appointmentTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Code slightly modified from the stackoverflow answer:
+            // https://stackoverflow.com/a/13687844
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is not DataGridViewButtonColumn)
+            {
+                return;
+            }
+            else if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            int rowIndex = e.RowIndex;
+            if (e.ColumnIndex == 5)
+            {
+                ShowAppointmentEditPage(rowIndex);
+            }
+            else if (e.ColumnIndex == 6)
+            {
+                CancelAppointment(rowIndex);
             }
         }
     }
