@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             LS_tabControl = new TabControl();
             loginPage = new TabPage();
             LS_resultLabel = new Label();
@@ -91,6 +91,23 @@
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewButtonColumn();
             Column7 = new DataGridViewButtonColumn();
+            editAppointmentPage = new TabPage();
+            EA_appointmentIDLabel = new Label();
+            EA_cancelButton = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            EA_updateButton = new Button();
+            EA_commentTextbox = new TextBox();
+            EA_datePicker = new DateTimePicker();
+            EA_doctorTextbox = new TextBox();
+            EA_minuteCombobox = new ComboBox();
+            EA_hourCombobox = new ComboBox();
+            EA_patientCombobox = new ComboBox();
             LS_tabControl.SuspendLayout();
             loginPage.SuspendLayout();
             tabControl.SuspendLayout();
@@ -99,6 +116,7 @@
             bookAppointmentPage.SuspendLayout();
             viewAppointmentPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)VA_appointmentTable).BeginInit();
+            editAppointmentPage.SuspendLayout();
             SuspendLayout();
             // 
             // LS_tabControl
@@ -179,6 +197,7 @@
             tabControl.Controls.Add(addPatientPage);
             tabControl.Controls.Add(bookAppointmentPage);
             tabControl.Controls.Add(viewAppointmentPage);
+            tabControl.Controls.Add(editAppointmentPage);
             tabControl.Dock = DockStyle.Top;
             tabControl.Location = new Point(0, 0);
             tabControl.Name = "tabControl";
@@ -640,14 +659,14 @@
             VA_appointmentTable.BackgroundColor = SystemColors.Window;
             VA_appointmentTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             VA_appointmentTable.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            VA_appointmentTable.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            VA_appointmentTable.DefaultCellStyle = dataGridViewCellStyle2;
             VA_appointmentTable.Dock = DockStyle.Fill;
             VA_appointmentTable.Location = new Point(0, 0);
             VA_appointmentTable.Name = "VA_appointmentTable";
@@ -710,6 +729,178 @@
             Column7.UseColumnTextForButtonValue = true;
             Column7.Width = 50;
             // 
+            // editAppointmentPage
+            // 
+            editAppointmentPage.Controls.Add(EA_appointmentIDLabel);
+            editAppointmentPage.Controls.Add(EA_cancelButton);
+            editAppointmentPage.Controls.Add(label1);
+            editAppointmentPage.Controls.Add(label2);
+            editAppointmentPage.Controls.Add(label3);
+            editAppointmentPage.Controls.Add(label4);
+            editAppointmentPage.Controls.Add(label7);
+            editAppointmentPage.Controls.Add(label8);
+            editAppointmentPage.Controls.Add(label9);
+            editAppointmentPage.Controls.Add(EA_updateButton);
+            editAppointmentPage.Controls.Add(EA_commentTextbox);
+            editAppointmentPage.Controls.Add(EA_datePicker);
+            editAppointmentPage.Controls.Add(EA_doctorTextbox);
+            editAppointmentPage.Controls.Add(EA_minuteCombobox);
+            editAppointmentPage.Controls.Add(EA_hourCombobox);
+            editAppointmentPage.Controls.Add(EA_patientCombobox);
+            editAppointmentPage.Location = new Point(4, 24);
+            editAppointmentPage.Name = "editAppointmentPage";
+            editAppointmentPage.Padding = new Padding(3);
+            editAppointmentPage.Size = new Size(792, 390);
+            editAppointmentPage.TabIndex = 4;
+            editAppointmentPage.Text = "Edit Appointment";
+            editAppointmentPage.UseVisualStyleBackColor = true;
+            // 
+            // EA_appointmentIDLabel
+            // 
+            EA_appointmentIDLabel.AutoSize = true;
+            EA_appointmentIDLabel.Location = new Point(18, 12);
+            EA_appointmentIDLabel.Name = "EA_appointmentIDLabel";
+            EA_appointmentIDLabel.Size = new Size(13, 15);
+            EA_appointmentIDLabel.TabIndex = 29;
+            EA_appointmentIDLabel.Text = "0";
+            EA_appointmentIDLabel.Visible = false;
+            // 
+            // EA_cancelButton
+            // 
+            EA_cancelButton.Location = new Point(411, 331);
+            EA_cancelButton.Name = "EA_cancelButton";
+            EA_cancelButton.Size = new Size(75, 23);
+            EA_cancelButton.TabIndex = 28;
+            EA_cancelButton.Text = "Cancel";
+            EA_cancelButton.UseVisualStyleBackColor = true;
+            EA_cancelButton.Click += EA_cancelButton_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(238, 208);
+            label1.Name = "label1";
+            label1.Size = new Size(61, 15);
+            label1.TabIndex = 27;
+            label1.Text = "Comment";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(453, 176);
+            label2.Name = "label2";
+            label2.Size = new Size(18, 15);
+            label2.TabIndex = 26;
+            label2.Text = "M";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(367, 176);
+            label3.Name = "label3";
+            label3.Size = new Size(16, 15);
+            label3.TabIndex = 25;
+            label3.Text = "H";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(250, 176);
+            label4.Name = "label4";
+            label4.Size = new Size(33, 15);
+            label4.TabIndex = 24;
+            label4.Text = "Time";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(250, 138);
+            label7.Name = "label7";
+            label7.Size = new Size(31, 15);
+            label7.TabIndex = 23;
+            label7.Text = "Date";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(250, 96);
+            label8.Name = "label8";
+            label8.Size = new Size(43, 15);
+            label8.TabIndex = 22;
+            label8.Text = "Doctor";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(250, 57);
+            label9.Name = "label9";
+            label9.Size = new Size(44, 15);
+            label9.TabIndex = 21;
+            label9.Text = "Patient";
+            // 
+            // EA_updateButton
+            // 
+            EA_updateButton.Location = new Point(305, 331);
+            EA_updateButton.Name = "EA_updateButton";
+            EA_updateButton.Size = new Size(75, 23);
+            EA_updateButton.TabIndex = 20;
+            EA_updateButton.Text = "Update";
+            EA_updateButton.UseVisualStyleBackColor = true;
+            EA_updateButton.Click += EA_updateButton_Click;
+            // 
+            // EA_commentTextbox
+            // 
+            EA_commentTextbox.Location = new Point(305, 208);
+            EA_commentTextbox.Multiline = true;
+            EA_commentTextbox.Name = "EA_commentTextbox";
+            EA_commentTextbox.Size = new Size(181, 103);
+            EA_commentTextbox.TabIndex = 19;
+            // 
+            // EA_datePicker
+            // 
+            EA_datePicker.Location = new Point(305, 132);
+            EA_datePicker.Name = "EA_datePicker";
+            EA_datePicker.Size = new Size(142, 23);
+            EA_datePicker.TabIndex = 18;
+            // 
+            // EA_doctorTextbox
+            // 
+            EA_doctorTextbox.AcceptsReturn = true;
+            EA_doctorTextbox.Location = new Point(305, 93);
+            EA_doctorTextbox.Name = "EA_doctorTextbox";
+            EA_doctorTextbox.ReadOnly = true;
+            EA_doctorTextbox.Size = new Size(100, 23);
+            EA_doctorTextbox.TabIndex = 17;
+            // 
+            // EA_minuteCombobox
+            // 
+            EA_minuteCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            EA_minuteCombobox.FormattingEnabled = true;
+            EA_minuteCombobox.Items.AddRange(new object[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" });
+            EA_minuteCombobox.Location = new Point(397, 173);
+            EA_minuteCombobox.Name = "EA_minuteCombobox";
+            EA_minuteCombobox.Size = new Size(50, 23);
+            EA_minuteCombobox.TabIndex = 16;
+            // 
+            // EA_hourCombobox
+            // 
+            EA_hourCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            EA_hourCombobox.FormattingEnabled = true;
+            EA_hourCombobox.Items.AddRange(new object[] { "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "19", "19", "20" });
+            EA_hourCombobox.Location = new Point(305, 173);
+            EA_hourCombobox.Name = "EA_hourCombobox";
+            EA_hourCombobox.Size = new Size(59, 23);
+            EA_hourCombobox.TabIndex = 15;
+            // 
+            // EA_patientCombobox
+            // 
+            EA_patientCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            EA_patientCombobox.FormattingEnabled = true;
+            EA_patientCombobox.Location = new Point(305, 54);
+            EA_patientCombobox.Name = "EA_patientCombobox";
+            EA_patientCombobox.Size = new Size(100, 23);
+            EA_patientCombobox.TabIndex = 14;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -732,6 +923,8 @@
             bookAppointmentPage.PerformLayout();
             viewAppointmentPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)VA_appointmentTable).EndInit();
+            editAppointmentPage.ResumeLayout(false);
+            editAppointmentPage.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -799,5 +992,22 @@
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewButtonColumn Column6;
         private DataGridViewButtonColumn Column7;
+        private TabPage editAppointmentPage;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private Button EA_updateButton;
+        private TextBox EA_commentTextbox;
+        private DateTimePicker EA_datePicker;
+        private TextBox EA_doctorTextbox;
+        private ComboBox EA_minuteCombobox;
+        private ComboBox EA_hourCombobox;
+        private ComboBox EA_patientCombobox;
+        private Button EA_cancelButton;
+        private Label EA_appointmentIDLabel;
     }
 }

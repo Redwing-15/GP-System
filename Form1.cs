@@ -24,6 +24,7 @@ namespace GP_System
             appointments.Add(new Appointment("Bob Ross", "Dave Smith", "01/01/2004", "08:40", "Has an inflamed arm"));
             appointments.Add(new Appointment("Bob Ross", "Dave Smith", "02/12/2023", "08:50", "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog."));
             InitializeComponent();
+            tabControl.TabPages.Remove(editAppointmentPage);
         }
 
         private void LS_loginButton_Click(object sender, EventArgs e)
@@ -240,10 +241,29 @@ namespace GP_System
         {
             Debug.WriteLine("Edit");
             Appointment appointment = appointments[index];
-            foreach (var data in appointment.GetData()) 
+            Dictionary<string, string> data = appointment.GetData();
+            foreach (var value in data)
             {
-                Debug.WriteLine(data);
+                Debug.WriteLine(value);
             }
+
+            tabControl.TabPages.Insert(4, editAppointmentPage);
+
+            EA_appointmentIDLabel.Text = data["id"];
+            EA_patientCombobox.Items.Clear();
+            for (int n = 0; n < patients.Count; n++)
+            {
+                EA_patientCombobox.Items.Add(patients[n].GetName());
+            }
+            EA_patientCombobox.Text = data["patient"];
+            EA_doctorTextbox.Text = data["doctor"];
+            EA_datePicker.Text = data["date"];
+            string[] time = data["time"].Split(':');
+            EA_hourCombobox.Text = time[0];
+            EA_minuteCombobox.Text = time[1];
+            EA_commentTextbox.Text = data["comment"];
+
+            tabControl.SelectedIndex = 4;
         }
         private void CancelAppointment(int index)
         {
@@ -274,6 +294,37 @@ namespace GP_System
             {
                 CancelAppointment(rowIndex);
             }
+        }
+
+        private void EA_cancelButton_Click(object sender, EventArgs e)
+        {
+            tabControl.TabPages.Remove(editAppointmentPage);
+            tabControl.SelectedIndex = 3;
+        }
+
+        private void EA_updateButton_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(EA_appointmentIDLabel.Text)-1;
+            string patient = EA_patientCombobox.Text;
+            string doctor = EA_doctorTextbox.Text;
+            string date = EA_datePicker.Value.ToString("dd/MM/yyyy");
+            string hour = EA_hourCombobox.Text;
+            string minute = EA_minuteCombobox.Text;
+            string time = $"{hour}:{minute}";
+            Debug.WriteLine(time);
+            string comment = EA_commentTextbox.Text;
+
+            if (patient == "" | hour == "" | minute == "")
+            {
+                MessageBox.Show("Please enter all fields");
+                return;
+            }
+
+            appointments[id].UpdateData(new List<string> {patient, doctor, date, time, comment});
+
+            MessageBox.Show("Successfully updated appointment!");
+            tabControl.TabPages.Remove(editAppointmentPage);
+            tabControl.SelectedIndex = 3;
         }
     }
 }

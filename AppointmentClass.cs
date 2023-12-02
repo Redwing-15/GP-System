@@ -1,3 +1,7 @@
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
+using System.Xml.Linq;
+
 namespace GP_System
 {
     internal class Appointment
@@ -36,6 +40,14 @@ namespace GP_System
                 { "time", time },
                 { "comment", comment }
             };
+        }
+        public void UpdateData(List<string> data)
+        {
+            patient = data[0];
+            doctor = data[1];
+            date = data[2];
+            time = data[3];
+            comment = data[4];
         }
     }
 }
