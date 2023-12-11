@@ -59,18 +59,22 @@ namespace GP_System
             string phone = AD_phoneEntry.Text;
             string address = AD_addressEntry.Text;
 
-            if (firstName == "" | lastName == "" | position == "" | email == "" | phone == ""
-                | address == "")
+            if (firstName == "" | lastName == "" | phone == "" | address == "")
             {
-                MessageBox.Show("Please enter all fields");
+                MessageBox.Show("Please enter all mandatory fields");
                 return;
             }
             else if (email.Contains('@') == false | email.Contains('.') == false)
             {
-                MessageBox.Show("Email must contain an \'@\' and a domain (e.g .com)");
-                return;
+                // Cannot put this statement in above if for some reason. I don't see the logic.
+                if (email != "")
+                {
+                    Debug.WriteLine($"Email: {email}");
+                    MessageBox.Show("Email must contain an \'@\' and a domain (e.g .com)");
+                    return;
+                }
             }
-            else if (double.TryParse(phone, out double result) == false)
+            if (double.TryParse(phone, out double result) == false)
             {
                 MessageBox.Show("Phone must only contain numbers");
                 return;
@@ -104,18 +108,22 @@ namespace GP_System
             string doctor = AP_doctorCombobox.Text;
             string doctorID = AP_doctorCombobox.Items.IndexOf(doctor).ToString();
 
-            if (firstName == "" | lastName == "" | nhsNumber == "" | email == "" | phone == ""
-                | address == "" | doctor == "")
+            if (firstName == "" | lastName == "" | nhsNumber == "" | address == "" | doctor == "")
             {
-                MessageBox.Show("Please enter all fields");
+                MessageBox.Show("Please enter all mandatory fields");
                 return;
             }
             else if (email.Contains('@') == false | email.Contains('.') == false)
             {
-                MessageBox.Show("Email must contain an \'@\' and a domain (e.g .com)");
-                return;
+                // Cannot put this statement in above if for some reason. I don't see the logic.
+                if (email != "")
+                {
+                    Debug.WriteLine($"Email: {email}");
+                    MessageBox.Show("Email must contain an \'@\' and a domain (e.g .com)");
+                    return;
+                }
             }
-            else if (double.TryParse(nhsNumber, out double result2) == false)
+            if (double.TryParse(nhsNumber, out double result2) == false)
             {
                 MessageBox.Show("NHS number must only contain numbers");
                 return;
@@ -125,17 +133,19 @@ namespace GP_System
                 MessageBox.Show("NHS number must be 10 numbers long");
                 return;
             }
-            else if (double.TryParse(phone, out double result) == false)
+            if (phone != "")
             {
-                MessageBox.Show("Phone must only contain numbers");
-                return;
+                if (double.TryParse(phone, out double result) == false | phone != "")
+                {
+                    MessageBox.Show("Phone must only contain numbers");
+                    return;
+                }
+                else if (phone.Length < 11)
+                {
+                    MessageBox.Show("Phone number must be 11 numbers long");
+                    return;
+                }
             }
-            else if (phone.Length < 11)
-            {
-                MessageBox.Show("Phone number must be 11 numbers long");
-                return;
-            }
-
             List<string> ids = new List<string>();
             foreach (Patient patient in patients)
             {
@@ -172,7 +182,7 @@ namespace GP_System
 
             if (patient == "" | hour == "" | minute == "")
             {
-                MessageBox.Show("Please enter all fields");
+                MessageBox.Show("Please enter all mandatory fields");
                 return;
             }
 

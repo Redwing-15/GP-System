@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             LS_tabControl = new TabControl();
             loginPage = new TabPage();
             LS_resultLabel = new Label();
@@ -38,6 +38,7 @@
             LS_logoutButton = new Button();
             tabControl = new TabControl();
             addDoctorPage = new TabPage();
+            AD_label10 = new Label();
             AD_label6 = new Label();
             AD_label5 = new Label();
             AD_label4 = new Label();
@@ -52,6 +53,7 @@
             AD_firstNameEntry = new TextBox();
             AD_lastNameEntry = new TextBox();
             addPatientPage = new TabPage();
+            AP_label10 = new Label();
             AP_label7 = new Label();
             AP_label6 = new Label();
             AP_label5 = new Label();
@@ -68,6 +70,7 @@
             AP_lastNameEntry = new TextBox();
             AP_firstNameEntry = new TextBox();
             bookAppointmentPage = new TabPage();
+            BA_label10 = new Label();
             BA_label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -108,10 +111,6 @@
             EA_minuteCombobox = new ComboBox();
             EA_hourCombobox = new ComboBox();
             EA_patientCombobox = new ComboBox();
-            AD_label10 = new Label();
-            AP_label10 = new Label();
-            BA_label10 = new Label();
-            EA_label10 = new Label();
             LS_tabControl.SuspendLayout();
             loginPage.SuspendLayout();
             tabControl.SuspendLayout();
@@ -234,6 +233,15 @@
             addDoctorPage.TabIndex = 0;
             addDoctorPage.Text = "Add Doctor";
             addDoctorPage.UseVisualStyleBackColor = true;
+            // 
+            // AD_label10
+            // 
+            AD_label10.AutoSize = true;
+            AD_label10.Location = new Point(198, 309);
+            AD_label10.Name = "AD_label10";
+            AD_label10.Size = new Size(149, 15);
+            AD_label10.TabIndex = 14;
+            AD_label10.Text = "* indicates mandatory field";
             // 
             // AD_label6
             // 
@@ -370,6 +378,15 @@
             addPatientPage.TabIndex = 1;
             addPatientPage.Text = "Add Patient";
             addPatientPage.UseVisualStyleBackColor = true;
+            // 
+            // AP_label10
+            // 
+            AP_label10.AutoSize = true;
+            AP_label10.Location = new Point(224, 318);
+            AP_label10.Name = "AP_label10";
+            AP_label10.Size = new Size(149, 15);
+            AP_label10.TabIndex = 16;
+            AP_label10.Text = "* indicates mandatory field";
             // 
             // AP_label7
             // 
@@ -521,6 +538,15 @@
             bookAppointmentPage.Text = "Book Appointment";
             bookAppointmentPage.UseVisualStyleBackColor = true;
             // 
+            // BA_label10
+            // 
+            BA_label10.AutoSize = true;
+            BA_label10.Location = new Point(211, 308);
+            BA_label10.Name = "BA_label10";
+            BA_label10.Size = new Size(149, 15);
+            BA_label10.TabIndex = 15;
+            BA_label10.Text = "* indicates mandatory field";
+            // 
             // BA_label7
             // 
             BA_label7.AutoSize = true;
@@ -667,14 +693,14 @@
             VA_appointmentTable.BackgroundColor = SystemColors.Window;
             VA_appointmentTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             VA_appointmentTable.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            VA_appointmentTable.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            VA_appointmentTable.DefaultCellStyle = dataGridViewCellStyle1;
             VA_appointmentTable.Dock = DockStyle.Fill;
             VA_appointmentTable.Location = new Point(0, 0);
             VA_appointmentTable.Name = "VA_appointmentTable";
@@ -739,7 +765,6 @@
             // 
             // editAppointmentPage
             // 
-            editAppointmentPage.Controls.Add(EA_label10);
             editAppointmentPage.Controls.Add(EA_appointmentIDLabel);
             editAppointmentPage.Controls.Add(EA_cancelButton);
             editAppointmentPage.Controls.Add(label1);
@@ -816,9 +841,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(250, 176);
             label4.Name = "label4";
-            label4.Size = new Size(38, 15);
+            label4.Size = new Size(33, 15);
             label4.TabIndex = 24;
-            label4.Text = "Time*";
+            label4.Text = "Time";
             // 
             // label7
             // 
@@ -843,9 +868,9 @@
             label9.AutoSize = true;
             label9.Location = new Point(250, 57);
             label9.Name = "label9";
-            label9.Size = new Size(49, 15);
+            label9.Size = new Size(44, 15);
             label9.TabIndex = 21;
-            label9.Text = "Patient*";
+            label9.Text = "Patient";
             // 
             // EA_updateButton
             // 
@@ -909,42 +934,6 @@
             EA_patientCombobox.Name = "EA_patientCombobox";
             EA_patientCombobox.Size = new Size(100, 23);
             EA_patientCombobox.TabIndex = 14;
-            // 
-            // AD_label10
-            // 
-            AD_label10.AutoSize = true;
-            AD_label10.Location = new Point(198, 309);
-            AD_label10.Name = "AD_label10";
-            AD_label10.Size = new Size(149, 15);
-            AD_label10.TabIndex = 14;
-            AD_label10.Text = "* indicates mandatory field";
-            // 
-            // AP_label10
-            // 
-            AP_label10.AutoSize = true;
-            AP_label10.Location = new Point(224, 318);
-            AP_label10.Name = "AP_label10";
-            AP_label10.Size = new Size(149, 15);
-            AP_label10.TabIndex = 16;
-            AP_label10.Text = "* indicates mandatory field";
-            // 
-            // BA_label10
-            // 
-            BA_label10.AutoSize = true;
-            BA_label10.Location = new Point(211, 308);
-            BA_label10.Name = "BA_label10";
-            BA_label10.Size = new Size(149, 15);
-            BA_label10.TabIndex = 15;
-            BA_label10.Text = "* indicates mandatory field";
-            // 
-            // EA_label10
-            // 
-            EA_label10.AutoSize = true;
-            EA_label10.Location = new Point(250, 313);
-            EA_label10.Name = "EA_label10";
-            EA_label10.Size = new Size(149, 15);
-            EA_label10.TabIndex = 30;
-            EA_label10.Text = "* indicates mandatory field";
             // 
             // Form1
             // 
@@ -1057,6 +1046,5 @@
         private Label AD_label10;
         private Label AP_label10;
         private Label BA_label10;
-        private Label EA_label10;
     }
 }
